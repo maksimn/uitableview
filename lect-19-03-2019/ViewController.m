@@ -12,7 +12,8 @@
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray<NSString *> *animals;
+@property (nonatomic, strong) NSArray *animalData;
+
 @end
 
 @implementation ViewController
@@ -33,34 +34,60 @@
     
     [self.view addSubview:self.tableView];
     
-    self.animals = @[
-                     @"Корова",
-                     @"Собака",
-                     @"Кошка",
-                     @"Лошадь",
-                     @"Олень"
+    NSArray *arr = @[@{
+                         @"image": @"Image-3",
+                         @"title": @"Корова",
+                         @"subtitle": @"Lorem ipsum dolor"
+                         },
+                     @{
+                         @"image": @"Image-4",
+                         @"title": @"Собака",
+                         @"subtitle": @"sit amet, consectetur"
+                         },
+                     @{
+                         @"image": @"Image-2",
+                         @"title": @"Кошка",
+                         @"subtitle": @"adipiscing elit, sed"
+                         },
+                     @{
+                         @"image": @"Image-1",
+                         @"title": @"Лошадь",
+                         @"subtitle": @"do eiusmod tempor"
+                         },
+                     @{
+                         @"image": @"Image",
+                         @"title": @"Олень",
+                         @"subtitle": @"incididunt ut laborer"
+                         }
                      ];
+    
+    self.animalData = arr;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.animals.count;
+    return self.animalData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnimalTableViewCell class]) forIndexPath:indexPath];
     
-    NSString *title = self.animals[indexPath.row];
+    NSInteger pos = indexPath.row;
+    NSString *title = self.animalData[pos][@"title"];
+    NSString *imageName = self.animalData[pos][@"image"];
+    NSString *subtitle = self.animalData[pos][@"subtitle"];
+    
     cell.titleLabel.text = title;
-    cell.coverImageView.image = [UIImage imageNamed: @"Image"];
+    cell.subtitleLabel.text = subtitle;
+    cell.coverImageView.image = [UIImage imageNamed: imageName];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * title = self.animals[indexPath.row];
+    NSString *title = self.animalData[indexPath.row][@"title"];
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *confirmActionButton = [UIAlertAction
