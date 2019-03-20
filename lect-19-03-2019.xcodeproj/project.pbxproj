@@ -13,6 +13,7 @@
 		0CCCBE9A224148F7001E4508 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CCCBE98224148F7001E4508 /* LaunchScreen.storyboard */; };
 		0CCCBE9D224148F7001E4508 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCCBE9C224148F7001E4508 /* main.m */; };
 		0CCCBEA522415B65001E4508 /* AnimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCCBEA422415B65001E4508 /* AnimalTableViewCell.m */; };
+		0CCCBEA82242A003001E4508 /* AltAnimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCCBEA72242A003001E4508 /* AltAnimalTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		0CCCBE9C224148F7001E4508 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0CCCBEA322415B65001E4508 /* AnimalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimalTableViewCell.h; sourceTree = "<group>"; };
 		0CCCBEA422415B65001E4508 /* AnimalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalTableViewCell.m; sourceTree = "<group>"; };
+		0CCCBEA62242A003001E4508 /* AltAnimalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AltAnimalTableViewCell.h; sourceTree = "<group>"; };
+		0CCCBEA72242A003001E4508 /* AltAnimalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AltAnimalTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				0CCCBE9C224148F7001E4508 /* main.m */,
 				0CCCBEA322415B65001E4508 /* AnimalTableViewCell.h */,
 				0CCCBEA422415B65001E4508 /* AnimalTableViewCell.m */,
+				0CCCBEA62242A003001E4508 /* AltAnimalTableViewCell.h */,
+				0CCCBEA72242A003001E4508 /* AltAnimalTableViewCell.m */,
 			);
 			path = "lect-19-03-2019";
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCCBE92224148F6001E4508 /* ViewController.m in Sources */,
+				0CCCBEA82242A003001E4508 /* AltAnimalTableViewCell.m in Sources */,
 				0CCCBEA522415B65001E4508 /* AnimalTableViewCell.m in Sources */,
 				0CCCBE9D224148F7001E4508 /* main.m in Sources */,
 				0CCCBE8F224148F6001E4508 /* AppDelegate.m in Sources */,

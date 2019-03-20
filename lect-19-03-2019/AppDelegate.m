@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [UIWindow new];
-    ViewController * rootViewController = [ViewController new];
+    ViewController *rootViewController = [ViewController new];
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     

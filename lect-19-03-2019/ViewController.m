@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AnimalTableViewCell.h"
+#import "AltAnimalTableViewCell.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -31,6 +32,8 @@
     
     [self.tableView registerClass:[AnimalTableViewCell class]
            forCellReuseIdentifier:NSStringFromClass([AnimalTableViewCell class])];
+    [self.tableView registerClass:[AltAnimalTableViewCell class]
+           forCellReuseIdentifier:NSStringFromClass([AltAnimalTableViewCell class])];
     
     [self.view addSubview:self.tableView];
     
@@ -71,15 +74,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnimalTableViewCell class]) forIndexPath:indexPath];
+    Boolean isOdd = indexPath.row % 2 == 0;
     
-    id animal = self.animalData[indexPath.row];
-    
-    cell.titleLabel.text = animal[@"title"];
-    cell.subtitleLabel.text = animal[@"subtitle"];
-    cell.coverImageView.image = [UIImage imageNamed: animal[@"image"]];
-    
-    return cell;
+    if (isOdd)
+    {
+        AnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnimalTableViewCell class]) forIndexPath:indexPath];
+        
+        id animal = self.animalData[indexPath.row];
+        
+        cell.titleLabel.text = animal[@"title"];
+        cell.subtitleLabel.text = animal[@"subtitle"];
+        cell.coverImageView.image = [UIImage imageNamed: animal[@"image"]];
+        
+        return cell;
+    }
+    else
+    {
+        AltAnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AltAnimalTableViewCell class]) forIndexPath:indexPath];
+        
+        id animal = self.animalData[indexPath.row];
+        
+        cell.titleLabel.text = animal[@"title"];
+        cell.subtitleLabel.text = animal[@"subtitle"];
+        cell.coverImageView.image = [UIImage imageNamed: animal[@"image"]];
+        
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
