@@ -75,31 +75,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Boolean isOdd = indexPath.row % 2 == 0;
+    id animal = self.animalData[indexPath.row];
     
-    if (isOdd)
-    {
-        AnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnimalTableViewCell class]) forIndexPath:indexPath];
-        
-        id animal = self.animalData[indexPath.row];
-        
-        cell.titleLabel.text = animal[@"title"];
-        cell.subtitleLabel.text = animal[@"subtitle"];
-        cell.coverImageView.image = [UIImage imageNamed: animal[@"image"]];
-        
-        return cell;
-    }
-    else
-    {
-        AltAnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AltAnimalTableViewCell class]) forIndexPath:indexPath];
-        
-        id animal = self.animalData[indexPath.row];
-        
-        cell.titleLabel.text = animal[@"title"];
-        cell.subtitleLabel.text = animal[@"subtitle"];
-        cell.coverImageView.image = [UIImage imageNamed: animal[@"image"]];
-        
-        return cell;
-    }
+    AnimalTableViewCell *cell = isOdd ?
+        [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnimalTableViewCell class]) forIndexPath:indexPath] :
+        [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AltAnimalTableViewCell class]) forIndexPath:indexPath];
+    
+    cell.titleLabel.text = animal[@"title"];
+    cell.subtitleLabel.text = animal[@"subtitle"];
+    cell.coverImageView.image = [UIImage imageNamed: animal[@"image"]];
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
