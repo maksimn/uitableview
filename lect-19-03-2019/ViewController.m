@@ -73,14 +73,11 @@
 {
     AnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnimalTableViewCell class]) forIndexPath:indexPath];
     
-    NSInteger pos = indexPath.row;
-    NSString *title = self.animalData[pos][@"title"];
-    NSString *imageName = self.animalData[pos][@"image"];
-    NSString *subtitle = self.animalData[pos][@"subtitle"];
+    id animal = self.animalData[indexPath.row];
     
-    cell.titleLabel.text = title;
-    cell.subtitleLabel.text = subtitle;
-    cell.coverImageView.image = [UIImage imageNamed: imageName];
+    cell.titleLabel.text = animal[@"title"];
+    cell.subtitleLabel.text = animal[@"subtitle"];
+    cell.coverImageView.image = [UIImage imageNamed: animal[@"image"]];
     
     return cell;
 }
