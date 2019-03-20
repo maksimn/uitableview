@@ -50,16 +50,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AnimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnimalTableViewCell class]) forIndexPath:indexPath];
-    // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"1234"];
     
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc]
-//                initWithStyle:UITableViewCellStyleDefault
-//                reuseIdentifier:@"1234"];
-//    }
+    NSString *title = self.animals[indexPath.row];
+    cell.titleLabel.text = title;
+    cell.coverImageView.image = [UIImage imageNamed: @"Image"];
     
-    NSString * title = self.animals[indexPath.row];
-    // cell.textLabel.text = title;
     return cell;
 }
 

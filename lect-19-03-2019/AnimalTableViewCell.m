@@ -10,10 +10,6 @@
 
 @interface AnimalTableViewCell ()
 
-@property (nonatomic, strong) UIImageView *coverImageView;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *subtitleLabel;
-
 @end
 
 @implementation AnimalTableViewCell
